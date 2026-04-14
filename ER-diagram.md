@@ -48,15 +48,6 @@ Dette ER diagrammet beskriver databasen for et turneringssystem.
 - En kamp består av to lag  
 - En kamp tilhører en turnering  
 
-
-## Kardinalitet
-
-- Bruker (1) - (0..1) Lag  
-- Lag (1) - (M) Deltaker  
-- Turnering (1) - (M) Kamp  
-- Lag (1) - (M) Kamp  
-
-
 ## Notater
 
 - Primærnøkler (PK) identifiserer unike rader  
