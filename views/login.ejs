@@ -1,0 +1,28 @@
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/main.css">
+</head>
+<body>
+    <%- include('templates/nav') %>
+    <main class="login-container">
+        <section class="login-card">
+            <form action="/login" method="POST" aria-label="Logg inn med Brukernavn og Passord">
+                <h1>Logg inn</h1>
+                <label>
+                    Brukernavn
+                    <input name="username" placeholder="Brukernavn" required>
+                </label>
+                <label>
+                    Passord
+                    <input type="password" name="password" placeholder="Passord" required>
+                </label>
+                <button type="submit">Logg inn</button>
+                <p>Hvis du ikke har en bruker <a href="/signup">registrer deg her</a></p>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

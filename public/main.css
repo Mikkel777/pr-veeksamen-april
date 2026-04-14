@@ -1,0 +1,257 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.navbar {
+    background-color: #ffffff;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid #dc2626; /* Red underline */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.navbar a {
+    color: #1f2937;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 17px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.navbar a:hover {
+    color: #ffffff;
+}
+
+.nav-left a:first-child {
+    font-size: 30px;
+    font-weight: 700;
+    color: #dc2626;
+}
+
+.nav-right a[href="login"],
+.nav-right a[href="signup"] {
+    background-color: #dc2626;
+    color: white;
+    border: none;
+}
+
+.nav-right a[href="login"]:hover,
+.nav-right a[href="signup"]:hover {
+    background-color: #b91c1c;
+    color: white;
+}
+
+/* login */
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(80vh - 130px);
+    padding: 20px;
+    margin: 0 auto;
+}
+
+.login-card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 40px;
+    width: 100%;
+    max-width: 400px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-card:hover {
+    transform: scale(1.01);
+    box-shadow: 0 12px 20px rgba(0,0,0,0.2);
+}
+
+.login-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.login-card h1 {
+    margin: 0 0 20px 0;
+    font-size: 2em;
+    text-align: center;
+    color: #111827;
+}
+
+.login-card label {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 0;
+    font-weight: bold;
+    color: #111827;
+}
+
+.login-card input {
+    padding: 12px;
+    margin-top: 0;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    transition: border-color 0.2s ease;
+}
+
+.login-card input:focus {
+    outline: none;
+    border-color: #dc2626;
+    box-shadow: 0 0 0 2px rgba(41, 97, 219, 0.1);
+}
+
+.login-card input::placeholder {
+    color: #999;
+}
+
+.login-card button {
+    margin-top: 10px;
+    padding: 14px;
+    background: #dc2626;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.login-card button:hover {
+    background: #c02020;
+}
+
+.login-card button:active {
+    transform: scale(0.98);
+}
+
+/* Link styling */
+.login-card p {
+    text-align: center;
+    margin: 10px 0 0 0;
+    font-size: 15px;
+}
+
+.login-card p a {
+    color: #e21c1c;
+    text-decoration: none;
+    margin-left: 5px;
+}
+
+.login-card p a:hover {
+    text-decoration: underline;
+}
+
+/* sign up */
+
+.signup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(80vh - 130px);
+    padding: 20px;
+    margin: 0 auto;
+}
+
+.signup-card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 40px;
+    width: 100%;
+    max-width: 400px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.signup-card:hover {
+    transform: scale(1.01);
+    box-shadow: 0 12px 20px rgba(0,0,0,0.2);
+}
+
+.signup-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.signup-card h1 {
+    margin: 0 0 20px 0;
+    font-size: 2em;
+    text-align: center;
+    color: #111827;
+}
+
+.signup-card label {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 0;
+    font-weight: bold;
+    color: #111827;
+}
+
+.signup-card input {
+    padding: 12px;
+    margin-top: 0;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    transition: border-color 0.2s ease;
+}
+
+.signup-card input:focus {
+    outline: none;
+    border-color: #dc2626;
+    box-shadow: 0 0 0 2px rgba(41, 97, 219, 0.1);
+}
+
+.signup-card input::placeholder {
+    color: #999;
+}
+
+.signup-card button {
+    margin-top: 10px;
+    padding: 14px;
+    background: #dc2626;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.signup-card button:hover {
+    background: #c02020;
+}
+
+.signup-card button:active {
+    transform: scale(0.98);
+}
+
+/* Link styling */
+.signup-card p {
+    text-align: center;
+    margin: 10px 0 0 0;
+    font-size: 15px;
+}
+
+.signup-card p a {
+    color: #e21c1c;
+    text-decoration: none;
+    margin-left: 5px;
+}
+
+.signup-card p a:hover {
+    text-decoration: underline;
+}

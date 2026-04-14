@@ -1,0 +1,19 @@
+<header>
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="/">Vind IL</a>
+        </div>
+        <div class="nav-right">
+            <% if (user) { %>
+                <a href="profile">Profil</a>
+                <a href="logout">Logg ut</a>
+            <% } else { %>
+                <a href="signup">Registrer</a>
+                <a href="login">Login</a>
+            <% } %>
+            <% if (role === "admin") { %>
+                <a href="/admin/reports">Admin Dashboard</a>
+            <% } %>
+        </div>
+    </nav>
+</header>
