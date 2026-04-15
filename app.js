@@ -2,6 +2,7 @@ const express = require("express");
 const routes = require("./router/routes");
 const path = require("path");
 const session = require("express-session");
+const mongoose = require("mongoose");
 
 const app = express();
 
@@ -17,10 +18,14 @@ app.use(session({
 }));
 
 app.use((req, res, next) => {
-    res.locals.user = req.session.username;
-    res.locals.role = req.session.role;
-    next();
+    res.locals.user = req.session.user;
+    res.locals.role = req.session.user?.role;
+  next();
 });
+
+mongoose.connect("mongodb://10.12.7.151:27017/vindIL")
+.then(() => console.log("MongoDB connected"))
+.catch(err => console.log(err));
 
 //routes
 app.use('/', routes);
