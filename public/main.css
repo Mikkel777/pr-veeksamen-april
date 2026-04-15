@@ -1,4 +1,5 @@
 body {
+    font-family: Arial, Helvetica, sans-serifs;
     padding: 0;
     margin: 0;
 }
@@ -9,7 +10,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 2px solid #dc2626; /* Red underline */
+    border-bottom: 2px solid #dc2626;
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
@@ -17,7 +18,7 @@ body {
     color: #1f2937;
     text-decoration: none;
     font-weight: 600;
-    font-size: 17px;
+    font-size: 20px;
     padding: 8px 12px;
     border-radius: 8px;
     transition: all 0.2s ease;
@@ -28,22 +29,148 @@ body {
 }
 
 .nav-left a:first-child {
-    font-size: 30px;
+    font-size: 40px;
     font-weight: 700;
     color: #dc2626;
 }
 
-.nav-right a[href="login"],
-.nav-right a[href="signup"] {
+.nav-right a[href="/login"],
+.nav-right a[href="/signup"],
+.nav-right a[href="/turneringer"],
+.nav-right a[href="/kamper"],
+.nav-right a[href="/lag"],
+.nav-right a[href="/logout"], 
+.nav-right a[href="/profile"],
+.nav-right a[href="/admin"] {
     background-color: #dc2626;
     color: white;
     border: none;
+    margin-left: 10px;
 }
 
-.nav-right a[href="login"]:hover,
-.nav-right a[href="signup"]:hover {
+.nav-right a[href="/login"]:hover,
+.nav-right a[href="/signup"]:hover {
     background-color: #b91c1c;
     color: white;
+}
+
+/* Main */
+.Info {
+    text-align: center;
+    margin-top: 120px;
+    padding: 0 20px;
+}
+
+.Info h1 {
+    font-size: 48px;
+    color: #dc2626;
+    margin-bottom: 20px;
+}
+
+.Info h2 {
+    font-size: 22px;
+    color: #2d3849;
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+    line-height: 1.6;
+    font-weight: 500;
+}
+
+.home-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.primary-btn {
+    background-color: #dc2626;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+
+.primary-btn:hover {
+    background-color: #b91c1c;
+    transform: translateY(-2px);
+}
+
+.secondary-btn {
+    background-color: #f3f4f6;
+    color: #111827;
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+
+.secondary-btn:hover {
+    background-color: #e5e7eb;
+    transform: translateY(-2px);
+}
+
+/* Turnering */
+
+.page-title {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 36px;
+    color: #111827;
+}
+
+.empty-text {
+    text-align: center;
+    margin-top: 20px;
+    color: #6b7280;
+}
+
+.tournament-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.card {
+    background-color: #ffffff;
+    border: 2px solid #dc2626;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    transition: all 0.25s ease;
+    cursor: pointer;
+}
+
+/* Hover effect */
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 24px rgba(0,0,0,0.18);
+}
+
+/* Title inside card */
+.card h2 {
+    margin: 0 0 10px 0;
+    font-size: 22px;
+    color: #111827;
+    transition: color 0.2s ease;
+}
+
+/* Hover title accent */
+.card:hover h2 {
+    color: #dc2626;
+}
+
+/* Text */
+.card p {
+    margin: 0;
+    color: #374151;
+    font-size: 15px;
 }
 
 /* login */
@@ -58,7 +185,7 @@ body {
 }
 
 .login-card {
-    background-color: #fff;
+    background-color: #ffffff;
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     padding: 40px;
@@ -254,4 +381,45 @@ body {
 
 .signup-card p a:hover {
     text-decoration: underline;
+}
+
+/* faq */
+
+.faq-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.faq-item {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 20px;
+    border: 1px solid #dc2626;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    transition: all 0.25s ease;
+}
+
+.faq-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 22px rgba(0,0,0,0.15);
+}
+
+.faq-item h2 {
+    margin: 0 0 10px 0;
+    font-size: 20px;
+}
+
+.faq-item p {
+    margin: 0;
+    color: #374151;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.faq-item ul {
+    margin-top: 10px;
+    padding-left: 20px;
+    color: #374151;
 }

@@ -1,0 +1,22 @@
+<body>
+  <link rel="stylesheet" href="/main.css">
+  <%- include('templates/nav') %>
+  <main>
+    <h1 class="page-title">Kamper</h1>
+    <div class="tournament-grid">
+      <% kamper.forEach(kamp => { %>
+        <div class="card">
+          <h2><%= kamp.lag1 %> vs <%= kamp.lag2 %></h2>
+          <p>
+            Resultat:
+            <% if (kamp.resultat) { %>
+              <%= kamp.resultat %>
+            <% } else { %>
+              Ikke spilt enda
+            <% } %>
+          </p>
+        </div>
+      <% }) %>
+    </div>
+  </main>
+</body>

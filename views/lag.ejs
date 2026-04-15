@@ -1,0 +1,14 @@
+<body>
+  <%- include('templates/nav') %>
+  <link rel="stylesheet" href="/main.css">
+  <main>
+    <h1 class="page-title">Lag</h1>
+    <div class="tournament-grid">
+      <% lag.forEach(l => { %>
+        <div class="card">
+          <h2><%= l.navn %></h2>
+        </div>
+      <% }) %>
+    </div>
+  </main>
+</body>

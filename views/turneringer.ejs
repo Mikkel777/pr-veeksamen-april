@@ -1,0 +1,32 @@
+<head>
+<link rel="stylesheet" href="/main.css">
+</head>
+  <%- include('templates/nav') %>
+<main>
+  <h1 class="page-title">Turneringer</h1>
+
+  <% if (turneringer.length === 0) { %>
+    <p class="empty-text">Ingen turneringer enda</p>
+  <% } %>
+
+  <div class="tournament-grid">
+    <% turneringer.forEach(t => { %>
+      <div class="card">
+        <h2><%= t.navn %></h2>
+        <p>Start: <%= new Date(t.startdato).toLocaleDateString() %></p>
+
+        <% if (t.sluttdato) { %>
+          <p>Slutt: <%= new Date(t.sluttdato).toLocaleDateString() %></p>
+        <% } %>
+
+        <% if (t.sted) { %>
+          <p>Sted: <%= t.sted %></p>
+        <% } %>
+
+        <% if (t.sport) { %>
+          <p>Sport: <%= t.sport %></p>
+        <% } %>
+      </div>
+    <% }) %>
+  </div>
+</main>
