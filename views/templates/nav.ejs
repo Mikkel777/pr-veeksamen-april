@@ -5,14 +5,17 @@
         </div>
         <div class="nav-right">
             <% if (user) { %>
-                <a href="profile">Profil</a>
-                <a href="logout">Logg ut</a>
+                <a href="/turneringer">Turneringer</a>
+                <a href="/kamper">Kamper</a>
+                <a href="/lag">Lag</a>
+                <a href="/profile">Profil</a>
+                <a href="/logout">Logg ut</a>
             <% } else { %>
-                <a href="signup">Registrer</a>
-                <a href="login">Login</a>
+                <a href="/signup">Registrer</a>
+                <a href="/login">Login</a>
             <% } %>
-            <% if (role === "admin") { %>
-                <a href="/admin/reports">Admin Dashboard</a>
+            <% if (user && user.role === "admin") { %>
+                <a href="/admin">Admin</a>
             <% } %>
         </div>
     </nav>
