@@ -1,0 +1,17 @@
+<head>
+    <link rel="stylesheet" href="/main.css">
+</head>
+<body>
+  <%- include('templates/nav') %>
+  <main>
+    <h1>Opprett turnering</h1>
+    <form action="/admin/opprett-turnering" method="POST">
+      <input type="text" name="navn" placeholder="Navn" required>
+      <input type="date" name="startdato" required>
+      <input type="date" name="sluttdato">
+      <input type="text" name="sted" placeholder="Sted">
+      <input type="text" name="sport" placeholder="Sport">
+      <button type="submit">Opprett</button>
+    </form>
+  </main>
+</body>
