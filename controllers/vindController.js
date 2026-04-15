@@ -1,35 +1,42 @@
 const express = require("express");
 const bcrypt = require("bcrypt");
-const users = [];
+const User = require("../models/User");
 
 exports.registerUser = async (req, res) => {
-  const { username, password, confirm } = req.body;
+  const { username, password, confirm} = req.body;
 
-    if (password !== confirm) {
-    return res.send("Passordene er ikke like");
-    }
-    
-    const hashedPassword = await bcrypt.hash(password, 10);
+  if (password !== confirm) {
+    return res.send("Passord er ikke det samme");
+  }
 
-  users.push({ username, password: hashedPassword });
+  const hashedPassword = await bcrypt.hash(password, 10);
 
-  res.render("index");
+  const newUser = new User ({
+    username,
+    password: hashedPassword,
+    role: "user"
+  });
+
+  await newUser.save();
+
+  res.redirect("/login")
 };
 
 exports.loginUser = async (req, res) => {
-  const { username, password } = req.body;
+  const {username, password} = req.body;
 
-  const user = users.find((u) => u.username === username);
+  const user = await User.findOne({username});
 
   if(!user) {
-    return res.send("Feil inlogging");
+    return res.send("Feil inlogging informasjon");
   }
 
   const match = await bcrypt.compare(password, user.password);
 
-  if (match) {
-    res.render("index");
+  if(match) {
+    req.session.user = user;
+    res.redirect("/");
   } else {
-    res.send("Feil inlogging");
+    res.send("Feil informasjon");
   }
 };
