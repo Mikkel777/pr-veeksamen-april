@@ -1,8 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const vindController = require("../controllers/vindController");
-const Turnering = require("../models/Turnering");
+const turneringController = require("../controllers/turneringController");
 const { requireLogin, isAdmin } = require("../middleware/auth");
+const lagController = require("../controllers/lagController");
 
 router.get("/", (req, res) => {
     res.render("index");
@@ -21,49 +22,40 @@ router.get("/faq", (req, res)=> {
 });
 
 //Alle sider
-router.get("/turneringer", async (req, res) => {
-  const turneringer = await Turnering.find();
-  console.log(turneringer);
-  res.render("turneringer", { turneringer });
-});
+router.get("/turneringer", turneringController.getTurneringer);
 
 router.get("/kamper", (req, res) => {
-  const kamper = [
-    { lag1: "Lag A", lag2: "Lag B", resultat: "2-1" },
-    { lag1: "Lag C", lag2: "Lag D", resultat: "0-0" }
-  ];
-  res.render("kamper", { kamper });
+  res.render("kamper", { kamper: [] });
 });
 
-router.get("/lag", (req, res) => {
-  const lag = [
-    { navn: "Vind IL G16" },
-    { navn: "Vind IL J14" }
-  ];
-  res.render("lag", { lag });
-});
+router.get("/lag", lagController.getLag);
 
 //admin routes
 router.get("/admin", requireLogin, isAdmin, (req, res) => {
   res.render("admin");
 });
 
-router.get("/admin/opprett-turnering", requireLogin, isAdmin, (req, res) => {
-  res.render("opprett-turnering");
+router.get("/admin/opprett-kamp", requireLogin, isAdmin, (req, res) => {
+  res.render("opprett-kamp");
 });
 
-router.post("/admin/opprett-turnering", requireLogin, isAdmin, async (req, res) => {
-    const { navn, startdato, sluttdato, sted, sport } = req.body;
+router.get("/admin/opprett-kamp", requireLogin, isAdmin, (req, res) => {
+  const {lag1, lag2, tidspunkt, resultat} = req.body;
 
-    await Turnering.create({
-      navn,
-      startdato: new Date(startdato),
-      sluttdato: sluttdato ? new Date(sluttdato) : null,
-      sted,
-      sport
-    });
-  res.redirect("/turneringer");
+  const kamp = {
+    lag1,
+    lag2,
+    tidspunkt: new Date(tidspunk),
+    resultat
+  }
+  res.redirect("/kamper");
 });
+
+router.get("/admin/opprett-turnering", requireLogin, isAdmin, turneringController.getOpprettTurnering);
+router.post("/admin/opprett-turnering", requireLogin, isAdmin, turneringController.createTurnering);
+
+router.get("/admin/opprett-lag", requireLogin, isAdmin, lagController.getOpprettLag);
+router.post("/admin/opprett-lag", requireLogin, isAdmin, lagController.createLag);
 
 //logout
 router.get("/logout", (req, res) => {
