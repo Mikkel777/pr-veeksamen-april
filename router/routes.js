@@ -23,12 +23,11 @@ router.get("/faq", (req, res)=> {
 
 //Alle sider
 router.get("/turneringer", turneringController.getTurneringer);
+router.get("/lag", lagController.getLag);
 
 router.get("/kamper", (req, res) => {
   res.render("kamper", { kamper: [] });
 });
-
-router.get("/lag", lagController.getLag);
 
 //admin routes
 router.get("/admin", requireLogin, isAdmin, (req, res) => {
