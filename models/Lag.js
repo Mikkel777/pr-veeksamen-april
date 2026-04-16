@@ -9,7 +9,7 @@ const lagSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    kontaktPerson: {
+    kontaktTelefon: {
         type: String,
         required: true
     }
