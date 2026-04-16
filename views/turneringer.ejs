@@ -3,6 +3,13 @@
 </head>
   <%- include('templates/nav') %>
 <main>
+  <% if (varsler && varsler.length > 0) { %>
+    <div style="margin: 10px; background: #fcc3c3; padding: 0.8rem; margin-bottom: 1rem; max-width: 300px; border-radius: 10px;">
+      <% varsler.forEach(v => { %>
+        <p><%= v %></p>
+      <% }) %>
+    </div>
+  <% } %>
   <h1 class="page-title">Turneringer</h1>
 
   <% if (turneringer.length === 0) { %>
