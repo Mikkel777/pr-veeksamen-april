@@ -4,11 +4,13 @@
   <main>
     <h1 class="page-title">Lag</h1>
     <div class="tournament-grid">
-      <% lag.forEach(l => { %>
-        <div class="card">
-          <h2><%= l.navn %></h2>
-        </div>
-      <% }) %>
+    <% lag.forEach(l => { %>
+      <div class="card">
+        <h2><%= l.navn %></h2>
+        <p>Kontakt: <%= l.kontaktNavn %></p>
+        <p>Tlf: <%= l.kontaktTelefon %></p>
+      </div>
+    <% }) %>
     </div>
   </main>
 </body>
