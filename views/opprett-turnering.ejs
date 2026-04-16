@@ -1,17 +1,56 @@
 <head>
     <link rel="stylesheet" href="/main.css">
+    <style>
+        .form-container {
+            max-width: 600px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: #fcfcfc;
+            border-radius: 8px;
+            border: 2px solid red;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+</style>
 </head>
 <body>
-  <%- include('templates/nav') %>
-  <main>
-    <h1>Opprett turnering</h1>
-    <form action="/admin/opprett-turnering" method="POST">
-      <input type="text" name="navn" placeholder="Navn" required>
-      <input type="date" name="startdato" required>
-      <input type="date" name="sluttdato">
-      <input type="text" name="sted" placeholder="Sted">
-      <input type="text" name="sport" placeholder="Sport">
-      <button type="submit">Opprett</button>
-    </form>
-  </main>
+    <%- include('templates/nav') %>
+    <main>
+        <div class="form-container">
+            <h1>Opprett turnering</h1>
+            <form action="/admin/opprett-turnering" method="POST">
+                <div class="form-group">
+                    <label for="navn" class="required">Turneringsnavn</label>
+                    <input type="text" id="navn" name="navn" placeholder="F.eks. Worldcup 2022" required>
+                </div>
+                <div class="form-group">
+                    <label for="startdato" class="required">Startdato</label>
+                    <input type="date" id="startdato" name="startdato" required>
+                </div>
+                <div class="form-group">
+                    <label for="sluttdato">Sluttdato <span class="optional">(valgfritt)</span></label>
+                    <input type="date" id="sluttdato" name="sluttdato">
+                </div>
+                <div class="form-group">
+                    <label for="sted">Sted <span class="optional">(valgfritt)</span></label>
+                    <input type="text" id="sted" name="sted" placeholder="F.eks. Oslo, Bergen, Trondheim">
+                </div>
+                <div class="form-group">
+                    <label for="sport">Sport <span class="optional">(valgfritt)</span></label>
+                    <input type="text" id="sport" name="sport" placeholder="F.eks. Fotball, Håndball, Basketball">
+                </div>
+                <button type="submit">Opprett turnering</button>
+            </form>
+        </div>
+    </main>
 </body>

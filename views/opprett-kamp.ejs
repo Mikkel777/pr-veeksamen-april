@@ -1,0 +1,56 @@
+<head>
+    <link rel="stylesheet" href="/main.css">
+    <style>
+        .form-container {
+            max-width: 600px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: #fcfcfc;
+            border-radius: 8px;
+            border: 2px solid red;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+</style>
+</head>
+<body>
+    <%- include('templates/nav') %>
+    <main>
+        <div class="form-container">
+            <h1>Opprett kamper</h1>
+            <form action="/admin/opprett-kamper" method="POST">
+            <div class="form-group">
+                <label>Lag 1</label>
+                <input type="text" name="lag1" required>
+            </div>
+
+            <div class="form-group">
+                <label>Lag 2</label>
+                <input type="text" name="lag2" required>
+            </div>
+
+            <div class="form-group">
+                <label>Tidspunkt</label>
+                <input type="datetime-local" name="tidspunkt" required>
+            </div>
+
+            <div class="form-group">
+                <label>Resultat</label>
+                <input type="text" name="resultat" placeholder="2-1">
+            </div>
+
+            <button type="submit">Opprett kamp</button>
+            </form>
+        </div>
+    </main>
+</body>
